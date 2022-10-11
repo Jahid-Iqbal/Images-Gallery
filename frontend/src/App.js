@@ -12,8 +12,16 @@ const App= ()=> {
   const handleSearchSubmit=(e)=>{
     e.preventDefault();
     console.log(word);   {/*target[0] is the search bar */}
+    fetch(`https://api.unsplash.com/photos/random/?query=${word}&client_id=${UNSPLASH_KEY}`)
+    .then((result)=>result.json())
+    .then((data)=>{
+      console.log(data);
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
   }
-
+      {/*fetch is a function that retrieve the photos. That is a promise. */}
   return (
     <div>
       <Header title="Images Gallery"/>
