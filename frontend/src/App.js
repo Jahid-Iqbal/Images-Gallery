@@ -4,7 +4,7 @@ import Search from './components/Search';
 import React from "react";
 import { useState } from 'react';
 
-
+const UNSPLASH_KEY= process.env.REACT_APP_UNSPLASH_KEY;   {/*connecting to upsplash API */}
 
 const App= ()=> {
   const [word,setWord]=useState('');
