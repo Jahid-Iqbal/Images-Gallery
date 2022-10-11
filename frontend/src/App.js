@@ -20,6 +20,7 @@ const App= ()=> {
     .catch((error)=>{
       console.log(error);
     })
+    setWord('');          {/*set the default text in search bar after pressing search button*/}
   }
       {/*fetch is a function that retrieve the photos. That is a promise. */}
   return (
