@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Search from './components/Search';
 import React from 'react';
 import { useState } from 'react';
+import ImageCard from './components/ImageCard';
 
 const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
 
@@ -22,8 +23,8 @@ const App = () => {
     )
       .then((result) => result.json())
       .then((data) => {
-        setImages([data, ...images]); //asynchronous function
-        console.log(images);
+        setImages([{ ...data, title: word }, ...images]); //asynchronous function
+        // console.log(images);
       })
       .catch((error) => {
         console.log(error);
@@ -42,6 +43,7 @@ const App = () => {
         setWord={setWord}
         handleSearch={handleSearchSubmit}
       />{' '}
+      {!!images.length && <ImageCard image={images[0]} />}
       {/*passing the function as parameter */}
     </div> //passing the parameter to the Header function
   );
