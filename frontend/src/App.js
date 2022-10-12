@@ -5,9 +5,8 @@ import React from 'react';
 import { useState } from 'react';
 
 const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
-{
-  /*connecting to upsplash API */
-}
+
+// `/*connecting to upsplash API */`
 
 const App = () => {
   const [word, setWord] = useState('');
@@ -15,9 +14,8 @@ const App = () => {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     console.log(word);
-    {
-      /*target[0] is the search bar */
-    }
+    /*target[0] is the search bar */
+
     fetch(
       `https://api.unsplash.com/photos/random/?query=${word}&client_id=${UNSPLASH_KEY}`
     )
@@ -29,13 +27,11 @@ const App = () => {
         console.log(error);
       });
     setWord('');
-    {
-      /*set the default text in search bar after pressing search button*/
-    }
+    /*set the default text in search bar after pressing search button*/
   };
-  {
-    /*fetch is a function that retrieve the photos. That is a promise. */
-  }
+
+  /*fetch is a function that retrieve the photos. That is a promise. */
+
   return (
     <div>
       <Header title="Images Gallery" />
