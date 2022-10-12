@@ -4,6 +4,7 @@ import Search from './components/Search';
 import React from 'react';
 import { useState } from 'react';
 import ImageCard from './components/ImageCard';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
 
@@ -43,7 +44,15 @@ const App = () => {
         setWord={setWord}
         handleSearch={handleSearchSubmit}
       />{' '}
-      {!!images.length && <ImageCard image={images[0]} />}
+      <Container className="mt-4">
+        <Row xs={1} md={2} lg={3}>
+          {images.map((image, index) => (
+            <Col key={index} className="pb-4">
+              <ImageCard image={image} />
+            </Col>
+          ))}
+        </Row>
+      </Container>
       {/*passing the function as parameter */}
     </div> //passing the parameter to the Header function
   );
