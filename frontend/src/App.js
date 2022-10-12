@@ -16,7 +16,6 @@ const App = () => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    console.log(word);
     /*target[0] is the search bar */
 
     fetch(
@@ -36,6 +35,10 @@ const App = () => {
 
   /*fetch is a function that retrieve the photos. That is a promise. */
 
+  const deleteImage = (id) => {
+    setImages(images.filter((image) => image.id !== id));
+  };
+
   return (
     <div>
       <Header title="Images Gallery" />
@@ -48,7 +51,7 @@ const App = () => {
         <Row xs={1} md={2} lg={3}>
           {images.map((image, index) => (
             <Col key={index} className="pb-4">
-              <ImageCard image={image} />
+              <ImageCard image={image} deleteImage={deleteImage} />
             </Col>
           ))}
         </Row>
