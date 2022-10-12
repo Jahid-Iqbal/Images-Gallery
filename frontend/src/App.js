@@ -10,6 +10,7 @@ const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
 
 const App = () => {
   const [word, setWord] = useState('');
+  const [images, setImages] = useState([]);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -21,12 +22,13 @@ const App = () => {
     )
       .then((result) => result.json())
       .then((data) => {
-        console.log(data);
+        setImages([data, ...images]); //asynchronous function
+        console.log(images);
       })
       .catch((error) => {
         console.log(error);
       });
-    setWord('');
+    setWord(''); //asynchronous function
     /*set the default text in search bar after pressing search button*/
   };
 
