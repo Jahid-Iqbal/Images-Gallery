@@ -11,7 +11,7 @@ const Header = (props) => {
   return (
     <Navbar style={navbarStyle} variant="light">
       <Container>
-        <Logo style={{ maxWidth: '12rem', maxHight: '2rem' }} />
+        <Logo alt={props} style={{ maxWidth: '12rem', maxHight: '2rem' }} />
       </Container>
     </Navbar>
   ); //props.title prints the value passed from App.js
